@@ -7,7 +7,7 @@ services:
             - 8080
         ports:
             - '127.0.0.1:8080:3000'
-            - '100.90.196.2:8080:3000'
+            - '100.111.33.72:8080:3000'
         environment:
             - NITRO_HOST=0.0.0.0
         volumes:
@@ -31,7 +31,7 @@ services:
         container_name: vatsim-radar-prebuilt-worker
         ports:
             - '127.0.0.1:8880:8880'
-            - '100.90.196.2:8880:8880'
+            - '100.111.33.72:8880:8880'
         command: /radar/.config/worker-prod.sh
         volumes:
             - "./app/data:/radar/app/data:rw"
@@ -52,7 +52,7 @@ services:
         container_name: vatsim-radar-prebuilt-navigraph
         ports:
             - '127.0.0.1:3000:3000'
-            - '100.90.196.2:3000:3000'
+            - '100.111.33.72:3000:3000'
         command: /radar/.config/navigraph-prod.sh
         volumes:
             - "./app/data:/radar/app/data:rw"
@@ -77,7 +77,7 @@ services:
             - MYSQL_ROOT_PASSWORD=localhost
         ports:
             - '127.0.0.1:3307:3306'
-            - '100.90.196.2:3307:3306'
+            - '100.111.33.72:3307:3306'
         healthcheck:
             test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
             timeout: 5s
@@ -113,10 +113,10 @@ services:
             - "127.0.0.1:9009:9009"
             - "127.0.0.1:8812:8812"
             - "127.0.0.1:9003:9003"
-            - "100.90.196.2:9000:9000"
-            - "100.90.196.2:9009:9009"
-            - "100.90.196.2:8812:8812"
-            - "100.90.196.2:9003:9003"
+            - "100.111.33.72:9000:9000"
+            - "100.111.33.72:9009:9009"
+            - "100.111.33.72:8812:8812"
+            - "100.111.33.72:9003:9003"
         volumes:
             - ./.config/questdb:/var/lib/questdb
         extra_hosts:
